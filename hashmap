@@ -12,3 +12,42 @@ class Solution:
                 return True
         return False
         
+https://leetcode.com/problems/ransom-note/?envType=study-plan-v2&envId=top-interview-150
+
+```
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        d = {}
+        for c in magazine:
+            if c in d:
+                d[c] += 1
+            else:
+                d[c] = 1
+        
+        for c in ransomNote:
+            if c not in magazine or d[c] <= 0:
+                return False
+            d[c] -= 1
+        return True
+        
+```
+
+https://leetcode.com/problems/isomorphic-strings/submissions/1643374676/?envType=study-plan-v2&envId=top-interview-150
+
+```
+class Solution:
+    def isIsomorphic(self, m: str, n: str) -> bool:
+        d = {}
+        t = {}
+
+        for i in range(len(m)):
+            if m[i] not in d:
+                d[m[i]] = i
+            if n[i] not in t:
+                t[n[i]] = i
+            if d[m[i]] != t[n[i]]:
+                return False
+        return True
+
+        
+```
